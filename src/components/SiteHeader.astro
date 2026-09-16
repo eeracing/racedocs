@@ -3,26 +3,23 @@ import LanguageSwitch from './LanguageSwitch.astro';
 
 interface Props {
   hasEnglish: boolean;
-  subtitleZh?: string;
-  subtitleEn?: string;
 }
 
-const { hasEnglish, subtitleZh, subtitleEn } = Astro.props;
+const { hasEnglish } = Astro.props;
 ---
 
 <header class="site-header">
-  <a class="brand" href="/" aria-label="返回 RaceDocs 首页">RaceDocs</a>
-  {subtitleZh && (
-    <span class="site-subtitle language-pair">
-      <span data-lang="zh">{subtitleZh}</span>
-      <span data-lang="en">{subtitleEn ?? subtitleZh}</span>
-    </span>
-  )}
-  <div class="header-actions">
-    <a href="/about/" class="header-about language-pair">
-      <span data-lang="zh">关于本站</span>
-      <span data-lang="en">About</span>
-    </a>
-    <LanguageSwitch hasEnglish={hasEnglish} />
+  <div class="site-header__inner">
+    <div class="site-branding">
+      <a class="brand" href="/" aria-label="返回 RaceDocs 首页">RaceDocs</a>
+      <span class="brand-attribution">by <a href="https://eeracing.com/">EE Racing</a></span>
+    </div>
+    <div class="header-actions">
+      <a href="/about/" class="header-about language-pair">
+        <span data-lang="zh">关于本站</span>
+        <span data-lang="en">About</span>
+      </a>
+      <LanguageSwitch hasEnglish={hasEnglish} />
+    </div>
   </div>
 </header>

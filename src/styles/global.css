@@ -2,7 +2,7 @@
   --font-body: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-display: "Arial Black", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
   color: #172026;
-  background: #f5f3ef;
+  background: #f3f2ee;
   font-family: var(--font-body);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -347,98 +347,155 @@ html[data-language="en"] .language-pair > [data-lang="en"] {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #d5d3cc;
+  background: color-mix(in srgb, #f3f2ee 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.reader-chrome .site-header {
+  position: relative;
+}
+
+.site-header__inner {
   display: flex;
-  height: 3.5rem;
+  width: 100%;
+  max-width: 92rem;
   min-height: 3.5rem;
   align-items: center;
-  gap: 1rem;
-  padding: 0.6rem clamp(1rem, 3vw, 2.5rem);
-  color: #fff;
-  background: #111a20;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.site-branding {
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  gap: 0.45rem;
 }
 
 .brand {
-  color: inherit;
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  color: #172026;
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
   line-height: 1;
   text-decoration: none;
 }
 
-.site-subtitle {
-  color: #9eabb3;
-  font-size: 0.85rem;
-  line-height: 1.25;
+.brand-attribution {
+  color: #7b858b;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-attribution a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.brand-attribution a:hover,
+.brand-attribution a:focus-visible {
+  color: #1747d1;
 }
 
 .site-footer {
   display: flex;
-  width: min(78rem, 100%);
+  width: 100%;
+  max-width: 92rem;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
   margin: auto auto 0;
-  padding: 2rem clamp(1rem, 5vw, 4rem) 2.5rem;
+  padding: 1.25rem clamp(1.25rem, 4vw, 4rem) 2rem;
+  border-top: 1px solid #d5d3cc;
   color: #64727b;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.5;
 }
 
-.footer-site-name,
-.site-footer a {
+.footer-site-name {
   color: #172026;
 }
 
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 .site-footer a {
+  color: inherit;
   text-decoration: none;
 }
 
-.site-footer a:hover {
+.site-footer a:hover,
+.site-footer a:focus-visible {
   color: #9e2a2b;
 }
 
 .header-actions {
   display: flex;
+  flex: none;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
   margin-left: auto;
 }
 
 .header-about {
-  color: #dbe3e8;
-  font-size: 0.85rem;
-  font-weight: 700;
+  color: #647178;
+  font-size: 0.8rem;
+  font-weight: 650;
   text-decoration: none;
 }
 
 .header-about:hover {
-  color: #fff;
+  color: #172026;
 }
 
 .language-switch {
   display: flex;
-  gap: 0.25rem;
-  padding: 0.2rem;
-  border: 1px solid #ffffff40;
-  border-radius: 0.45rem;
+  gap: 0.15rem;
+  padding: 0.18rem;
+  border: 1px solid #d0ccc5;
+  border-radius: 0.35rem;
+  background: #ebe8e2;
 }
 
 .language-switch button {
-  padding: 0.4rem 0.7rem;
+  padding: 0.38rem 0.6rem;
   border: 0;
-  border-radius: 0.3rem;
-  color: #dbe3e8;
+  border-radius: 0.22rem;
+  color: #68757c;
   background: transparent;
   cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 650;
   line-height: 1.25;
+}
+
+.language-switch button:hover {
+  color: #172026;
 }
 
 html:not([data-language="en"]) .language-switch button[data-language-option="zh"],
 html[data-language="en"] .language-switch button[data-language-option="en"] {
-  color: #111a20;
-  background: #fff;
+  color: #fff;
+  background: #172026;
+  box-shadow: 0 1px 2px #111a201f;
 }
 
 .reader-layout {
@@ -646,13 +703,17 @@ html[data-language="en"] .language-switch button[data-language-option="en"] {
 .manual-prose a:focus-visible,
 .manual-toc a:focus-visible,
 .manual-card > a:focus-visible,
-.site-footer a:focus-visible,
 .about-project-link:focus-visible,
 .not-found a:focus-visible,
 .catalog-controls input:focus-visible,
 .catalog-controls select:focus-visible,
 button:focus-visible {
   outline: 3px solid #2c73b8;
+  outline-offset: 3px;
+}
+
+.site-footer a:focus-visible {
+  outline: 3px solid #9e2a2b;
   outline-offset: 3px;
 }
 
@@ -732,7 +793,7 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  .site-header {
+  .site-header__inner {
     min-height: 3.5rem;
   }
 
@@ -831,13 +892,13 @@ button:focus-visible {
 }
 
 @media (max-width: 39.99rem) {
-  .site-subtitle {
-    display: none;
-  }
-
-  .site-header,
+  .site-header__inner,
   .header-actions {
     gap: 0.5rem;
+  }
+
+  .site-header__inner {
+    padding-inline: 1rem;
   }
 
   .language-switch button {
@@ -863,4 +924,24 @@ button:focus-visible {
     font-size: 1rem;
   }
 
+}
+
+@media (max-width: 28rem) {
+  .site-branding {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.18rem;
+  }
+
+  .brand-attribution {
+    font-size: 0.62rem;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .header-about {
+    font-size: 0.75rem;
+  }
 }
