@@ -403,8 +403,9 @@ html[data-language="en"] .language-pair > [data-lang="en"] {
   text-decoration: none;
 }
 
-.brand-attribution a:hover {
-  color: #172026;
+.brand-attribution a:hover,
+.brand-attribution a:focus-visible {
+  color: #1747d1;
 }
 
 .site-footer {
