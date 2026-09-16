@@ -347,29 +347,64 @@ html[data-language="en"] .language-pair > [data-lang="en"] {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #d8d3cb;
+  background: color-mix(in srgb, #f5f3ef 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.reader-chrome .site-header {
+  position: relative;
+}
+
+.site-header__inner {
   display: flex;
-  height: 3.5rem;
-  min-height: 3.5rem;
+  width: 100%;
+  max-width: 92rem;
+  min-height: 4.5rem;
   align-items: center;
-  gap: 1rem;
-  padding: 0.6rem clamp(1rem, 3vw, 2.5rem);
-  color: #fff;
-  background: #111a20;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+.site-branding {
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  gap: 0.45rem;
 }
 
 .brand {
-  color: inherit;
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  color: #172026;
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
   line-height: 1;
   text-decoration: none;
 }
 
-.site-subtitle {
-  color: #9eabb3;
-  font-size: 0.85rem;
-  line-height: 1.25;
+.brand-attribution {
+  color: #7b858b;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-attribution a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.brand-attribution a:hover {
+  color: #172026;
 }
 
 .site-footer {
@@ -401,44 +436,53 @@ html[data-language="en"] .language-pair > [data-lang="en"] {
 
 .header-actions {
   display: flex;
+  flex: none;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
   margin-left: auto;
 }
 
 .header-about {
-  color: #dbe3e8;
-  font-size: 0.85rem;
-  font-weight: 700;
+  color: #647178;
+  font-size: 0.8rem;
+  font-weight: 650;
   text-decoration: none;
 }
 
 .header-about:hover {
-  color: #fff;
+  color: #172026;
 }
 
 .language-switch {
   display: flex;
-  gap: 0.25rem;
-  padding: 0.2rem;
-  border: 1px solid #ffffff40;
-  border-radius: 0.45rem;
+  gap: 0.15rem;
+  padding: 0.18rem;
+  border: 1px solid #d0ccc5;
+  border-radius: 0.35rem;
+  background: #ebe8e2;
 }
 
 .language-switch button {
-  padding: 0.4rem 0.7rem;
+  padding: 0.38rem 0.6rem;
   border: 0;
-  border-radius: 0.3rem;
-  color: #dbe3e8;
+  border-radius: 0.22rem;
+  color: #68757c;
   background: transparent;
   cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 650;
   line-height: 1.25;
+}
+
+.language-switch button:hover {
+  color: #172026;
 }
 
 html:not([data-language="en"]) .language-switch button[data-language-option="zh"],
 html[data-language="en"] .language-switch button[data-language-option="en"] {
-  color: #111a20;
-  background: #fff;
+  color: #fff;
+  background: #172026;
+  box-shadow: 0 1px 2px #111a201f;
 }
 
 .reader-layout {
@@ -451,9 +495,9 @@ html[data-language="en"] .language-switch button[data-language-option="en"] {
 
 .reader-sidebar {
   position: sticky;
-  top: 4.75rem;
+  top: 5.75rem;
   align-self: start;
-  max-height: calc(100vh - 5.75rem);
+  max-height: calc(100vh - 6.75rem);
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
@@ -725,15 +769,15 @@ button:focus-visible {
 
 @media (max-width: 59.99rem) {
   html {
-    scroll-padding-top: 7rem;
+    scroll-padding-top: 7.5rem;
   }
 
   .catalog-controls {
     grid-template-columns: 1fr;
   }
 
-  .site-header {
-    min-height: 3.5rem;
+  .site-header__inner {
+    min-height: 4rem;
   }
 
   .mobile-reader-bar {
@@ -775,7 +819,7 @@ button:focus-visible {
   }
 
   .manual-section {
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 7.5rem;
   }
 
   .toc-dialog {
@@ -831,13 +875,13 @@ button:focus-visible {
 }
 
 @media (max-width: 39.99rem) {
-  .site-subtitle {
-    display: none;
-  }
-
-  .site-header,
+  .site-header__inner,
   .header-actions {
     gap: 0.5rem;
+  }
+
+  .site-header__inner {
+    padding-inline: 1rem;
   }
 
   .language-switch button {
@@ -863,4 +907,24 @@ button:focus-visible {
     font-size: 1rem;
   }
 
+}
+
+@media (max-width: 28rem) {
+  .site-branding {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.18rem;
+  }
+
+  .brand-attribution {
+    font-size: 0.62rem;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .header-about {
+    font-size: 0.75rem;
+  }
 }
