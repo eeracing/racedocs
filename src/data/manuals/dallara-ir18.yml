@@ -177,8 +177,13 @@ sections:
 
       If a driver is trying to share a setup with you, you will find it under “Shared Setups” on the right side of the garage as well.
 
-  - id: dash-configuration
+  - id: dash-pages
     level: 2
+    titleZh: 仪表页面
+    titleEn: DASH PAGES
+
+  - id: dash-configuration
+    level: 3
     titleZh: 仪表配置
     titleEn: DASH CONFIGURATION
     bodyZh: |+
