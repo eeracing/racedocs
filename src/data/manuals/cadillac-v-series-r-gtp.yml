@@ -1033,6 +1033,11 @@ sections:
     bodyEn: |+
       > This section is aimed toward helping users who want to dive deeper into the different aspects of the vehicle’s setup.
 
+  - id: setup-tips-2
+    level: 3
+    titleZh: 设置技巧
+    titleEn: SETUP TIPS
+
   - id: provided-setups
     level: 3
     titleZh: 随附设置

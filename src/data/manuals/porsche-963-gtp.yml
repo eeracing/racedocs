@@ -54,7 +54,7 @@ sections:
     bodyZh: |+
       ![底盘规格](./assets/porsche-963-gtp/chassis-specifications.png)
 
-      #### 双叉臂结构与推杆驱动的内置弹簧
+      双叉臂结构与推杆驱动的内置弹簧
 
       | 规格 | 数值 |
       | --- | --- |
@@ -67,7 +67,7 @@ sections:
     bodyEn: |+
       ![Image](./assets/porsche-963-gtp/chassis-specifications.png)
 
-      #### DOUBLE WISHBONE WITH PUSHROD-ACTUATED INBOARD SPRINGS
+      DOUBLE WISHBONE WITH PUSHROD-ACTUATED INBOARD SPRINGS
 
       | Specification | Value |
       | --- | --- |
@@ -82,9 +82,9 @@ sections:
     titleZh: 动力单元
     titleEn: POWER UNIT
     bodyZh: |+
-      #### 双涡轮增压 V8，配 Bosch MGU 混合动力系统
-
       ![动力单元](./assets/porsche-963-gtp/power-unit.png)
+
+      双涡轮增压 V8，配 Bosch MGU 混合动力系统
 
       | 规格 | 数值 |
       | --- | --- |
@@ -96,9 +96,9 @@ sections:
       ![车辆侧视图](./assets/porsche-963-gtp/vehicle-profile.png)
 
     bodyEn: |+
-      #### TWIN-TURBO V8 WITH BOSCH MGU HYBRID SYSTEM
-
       ![Image](./assets/porsche-963-gtp/power-unit.png)
+
+      TWIN-TURBO V8 WITH BOSCH MGU HYBRID SYSTEM
 
       | Specification | Value |
       | --- | --- |
@@ -403,21 +403,21 @@ sections:
 
       车辆载入赛道时选择安装的轮胎类型。干胎（或光头胎）用于干地比赛条件；湿胎用于下雨和湿滑赛道条件。
 
-      #### 最后温度
-
-      车辆从赛道返回后显示轮胎胎体温度（在胎面内部测得）。这些温度可有效判断轮胎在赛道上承受的工作量或负荷。内侧与外侧温度差可用于调校单个车轮定位；中心温度可与外侧温度比较，以帮助调校胎压。
-
       #### 起始压力
 
       车辆载入赛道时的轮胎气压。较低压力会提供更多抓地力，但会产生更大的滚动阻力并更快升温。较高压力的响应会略微更快，滚动阻力更小，但抓地力更低。通常，高速赛道偏好较高压力；低速赛道需要机械抓地力时，较低压力效果更好。
 
-      #### 胎面剩余
-
-      胎面厚度以新胎百分比显示，位于轮胎温度下方。这些数值适合判断一套轮胎在需要更换前还能使用多远，但与温度不同，它们不一定能反映轮胎是否负荷过度或负荷不足。
-
       #### 上次热态压力
 
       车辆在赛道上完成一段行驶后返回车库时，轮胎压力会显示为热态压力。冷态压力与热态压力之差是观察轮胎在赛道上承受负荷和工作程度的好方法。工作量更大的轮胎会建立更高压力；注意哪些轮胎升压更多，并相应调整冷态压力，对于优化轮胎性能至关重要。
+
+      #### 最后温度
+
+      车辆从赛道返回后显示轮胎胎体温度（在胎面内部测得）。这些温度可有效判断轮胎在赛道上承受的工作量或负荷。内侧与外侧温度差可用于调校单个车轮定位；中心温度可与外侧温度比较，以帮助调校胎压。
+
+      #### 胎面剩余
+
+      胎面厚度以新胎百分比显示，位于轮胎温度下方。这些数值适合判断一套轮胎在需要更换前还能使用多远，但与温度不同，它们不一定能反映轮胎是否负荷过度或负荷不足。
 
     bodyEn: |+
       ![Image](./assets/porsche-963-gtp/tire-data.png)
@@ -426,21 +426,21 @@ sections:
 
       Selects which type of tire is installed on the car when loaded into the world. Dry, or slick, tires are used for dry racing conditions while Wet tires are intended for raining and wet track conditions.
 
-      #### LAST TEMPS
-
-      The tire carcass temperatures (measured within the tread) are displayed after the car returns from the track. These temperatures are an effective way to determine how much work or load a given tire is experiencing while on track. Differences between the inner and outer temperatures can be used to tune individual wheel alignment and the center temperatures can be compared to the outer temperatures to help tune tire pressure.
-
       #### STARTING PRESSURE
 
       The air pressure in the tires when the car is loaded into the world. Lower pressures will provide more grip but will produce more rolling drag and build temperature faster. Higher pressures will feel slightly more responsive and produce less rolling drag, but will result in less grip. Generally, higher pressures are preferred at tracks where speeds are higher while lower pressures work better at slower tracks where mechanical grip is important.
 
-      #### TREAD REMAINING
-
-      The amount of tread on the tire, displayed as a percentage of a new tire, is shown below the tire temperatures. These values are good for determining how far a set of tires can go before needing to be replaced, but don’t necessarily indicate an under- or over-worked tire in the same way temperatures will.
-
       #### LAST HOT PRESSURE
 
       When the car returns to the garage after an on-track stint, the tire pressure will be displayed as Hot Pressure. The difference between cold and hot pressure is a good way to see how tires are being loaded and worked while on track. Tires seeing more work will build more pressure, and paying attention to which tires are building more pressure and adjusting cold pressure to compensate can be crucial for optimizing tire performance.
+
+      #### LAST TEMPS
+
+      The tire carcass temperatures (measured within the tread) are displayed after the car returns from the track. These temperatures are an effective way to determine how much work or load a given tire is experiencing while on track. Differences between the inner and outer temperatures can be used to tune individual wheel alignment and the center temperatures can be compared to the outer temperatures to help tune tire pressure.
+
+      #### TREAD REMAINING
+
+      The amount of tread on the tire, displayed as a percentage of a new tire, is shown below the tire temperatures. These values are good for determining how far a set of tires can go before needing to be replaced, but don’t necessarily indicate an under- or over-worked tire in the same way temperatures will.
 
   - id: aero-settings
     level: 3
@@ -500,29 +500,29 @@ sections:
 
       前部垂向弹簧是悬架元件，只处理纯垂直方向的外部负荷，不控制会在过弯时引起车身侧倾的负荷。这类负荷通常来自高速时增加的下压力、赛道的凹陷和凸起，或重刹。更高的刚度值会使悬架在垂向方向上更硬，有利于控制车高以维持良好的空气动力学平台，但在颠簸路面上可能产生弹跳。较低的刚度更容易吸收颠簸和负荷，但车身过度移动会损害空气动力学平台。
 
-      #### 滚转弹簧（Roll Spring）
-
-      滚转弹簧是前悬架中的装置，用于抵抗车身侧倾但不抵抗垂直载荷，作用类似防倾杆。改变滚转弹簧刚度会改变前悬架的侧倾刚度：更高数值提高侧倾刚度，更低数值降低侧倾刚度。更高的侧倾刚度会抵抗过弯时的车身侧倾，有助于形成更稳定的空气动力学平台，尤其是在高速弯中，但可能降低前轴在低速弯中的机械抓地力。降低侧倾刚度会增加前轴机械抓地力并减少低速弯转向不足，但可能使高速弯中的车身侧倾过大，损害空气动力学性能。
-
       #### 垂向弹簧座偏移（Heave Perch Offset）
 
       垂向弹簧座偏移用于调节垂向弹簧的预载，是通过前部垂向元件调节车高的两种方法之一。较低数值会给弹簧施加更多预载并提高前车高；相反，较高数值会卸去弹簧预载并降低前车高。
-
-      #### 滚转弹簧座偏移（Roll Perch Offset）
-
-      滚转弹簧座偏移用于在底盘其他部位调整后消除滚转弹簧的预载。由于技术限制，该设置不能用于改变车高，主要用于改变滚转弹簧挠度数值。
 
       #### 垂向弹簧挠度（Heave Spring Deflection）
 
       垂向弹簧挠度表示静态条件下垂向弹簧被压缩的量。该值不能直接调整，但会随垂向弹簧座偏移和前部扭杆设置的调整而改变。
 
-      #### 滚转弹簧挠度（Roll Spring Deflection）
-
-      滚转弹簧挠度表示滚转弹簧从自由（未加载）长度压缩的量。该值不能直接调整，会因其他前悬架设置而改变，尤其受滚转弹簧座偏移影响。为了通过车库中的技术限制，该数值必须接近零。
-
       #### 垂向滑块挠度（Heave Slider Deflection）
 
       垂向滑块挠度表示安装垂向弹簧的滑块机构从完全伸展状态压缩的距离。它类似减振器，但不会产生任何阻尼力，因此不影响悬架的行为。
+
+      #### 滚转弹簧（Roll Spring）
+
+      滚转弹簧是前悬架中的装置，用于抵抗车身侧倾但不抵抗垂直载荷，作用类似防倾杆。改变滚转弹簧刚度会改变前悬架的侧倾刚度：更高数值提高侧倾刚度，更低数值降低侧倾刚度。更高的侧倾刚度会抵抗过弯时的车身侧倾，有助于形成更稳定的空气动力学平台，尤其是在高速弯中，但可能降低前轴在低速弯中的机械抓地力。降低侧倾刚度会增加前轴机械抓地力并减少低速弯转向不足，但可能使高速弯中的车身侧倾过大，损害空气动力学性能。
+
+      #### 滚转弹簧座偏移（Roll Perch Offset）
+
+      滚转弹簧座偏移用于在底盘其他部位调整后消除滚转弹簧的预载。由于技术限制，该设置不能用于改变车高，主要用于改变滚转弹簧挠度数值。
+
+      #### 滚转弹簧挠度（Roll Spring Deflection）
+
+      滚转弹簧挠度表示滚转弹簧从自由（未加载）长度压缩的量。该值不能直接调整，会因其他前悬架设置而改变，尤其受滚转弹簧座偏移影响。为了通过车库中的技术限制，该数值必须接近零。
 
       #### 滚转减振器挠度（Roll Damper Deflection）
 
@@ -551,29 +551,29 @@ sections:
 
       The front Heave Spring is a suspension element that handles external loads from purely vertical loads and doesn’t control loads that would induce chassis roll when cornering. Generally these loads are present for increasing downforce loads at higher speeds, dips and crests in the track, or under heavy braking. Higher rate values will stiffen the suspension in heave, which is good for controlling ride heights to maintain a good aerodynamic platform, but can produce a bouncing effect on rough surfaces. Lower rates will absorb bumps and loads easier, but will hurt the aerodynamic platform due to excessive chassis movement.
 
-      #### ROLL SPRING
-
-      The Roll Spring is a device in the front suspension that counteracts roll movement but not vertical loading, similar to an Anti-Roll Bar. Changing the Roll Spring rate will alter the front suspension’s stiffness in roll, with higher values increasing roll stiffness and lower values reducing roll stiffness. Higher roll stiffness will counteract chassis roll when cornering which can produce a more consistent aerodynamic platform, especially at high speeds, but can reduce mechanical grip across the front axle in slower corners. Lowering roll stiffness will increase mechanical grip at the front axle and reduce understeer in slow corners but can allow too much body roll in high-speed corners, hurting aero performance.
-
       #### HEAVE PERCH OFFSET
 
       The Heave Perch Offset is used to adjust preload on the Heave Spring. This is one of two methods to adjust ride height through the front Heave element, with lower values preloading the spring more and raising front ride heights. Conversely, higher values will unload the spring and lower front ride heights.
-
-      #### ROLL PERCH OFFSET
-
-      The Roll Perch Offset is used to adjust preload on the Roll Spring. This adjustment is used to remove pre-load from the Roll Spring following changes elsewhere on the chassis. Due to tech limits this cannot be used to alter ride heights and is mainly used to alter the Roll Spring Deflection value.
 
       #### HEAVE SPRING DEFLECTION
 
       Heave Spring Deflection represents the amount the Heave Spring is compressed under static conditions. This is not directly adjustable but will change with adjustments to the Heave Perch Offset and front Torsion Bar settings.
 
-      #### ROLL SPRING DEFLECTION
-
-      The Roll Spring Deflection is how much the Roll Spring has compressed from its free (unloaded) length. This is not directly adjustable, but is altered as a result of other front suspension adjustments, especially the Roll Perch Offset setting. In order to pass tech limits in the garage this value must be near-zero.
-
       #### HEAVE SLIDER DEFLECTION
 
       The Slider Deflection is how far the slider mechanism the Heave Spring is mounted on has compressed from fully extended. Similar to a shock but without any damping forces produced, this doesn’t influence the suspension’s behavior.
+
+      #### ROLL SPRING
+
+      The Roll Spring is a device in the front suspension that counteracts roll movement but not vertical loading, similar to an Anti-Roll Bar. Changing the Roll Spring rate will alter the front suspension’s stiffness in roll, with higher values increasing roll stiffness and lower values reducing roll stiffness. Higher roll stiffness will counteract chassis roll when cornering which can produce a more consistent aerodynamic platform, especially at high speeds, but can reduce mechanical grip across the front axle in slower corners. Lowering roll stiffness will increase mechanical grip at the front axle and reduce understeer in slow corners but can allow too much body roll in high-speed corners, hurting aero performance.
+
+      #### ROLL PERCH OFFSET
+
+      The Roll Perch Offset is used to adjust preload on the Roll Spring. This adjustment is used to remove pre-load from the Roll Spring following changes elsewhere on the chassis. Due to tech limits this cannot be used to alter ride heights and is mainly used to alter the Roll Spring Deflection value.
+
+      #### ROLL SPRING DEFLECTION
+
+      The Roll Spring Deflection is how much the Roll Spring has compressed from its free (unloaded) length. This is not directly adjustable, but is altered as a result of other front suspension adjustments, especially the Roll Perch Offset setting. In order to pass tech limits in the garage this value must be near-zero.
 
       #### ROLL DAMPER DEFLECTION
 
@@ -640,21 +640,25 @@ sections:
 
       车库静态条件下每条轮胎下方承受的重量。正确安排车辆周围的重量对于针对特定赛道和条件优化车辆至关重要。通过后轮的弹簧座偏移设置，可以调整单个车轮的重量和交叉配重。
 
-      #### 弹簧座偏移（Spring Perch Offset）
-
-      用于调整车高和轮角重量；改变该设置会在静态条件下给弹簧施加预载。减小数值会增加弹簧预载，使该轮角增加重量并提高该处车高。增大数值则相反，会降低该轮角的车高和重量。调整车高时，应成对调整（例如左右成对），或同时调整车内四个弹簧预载设置，以避免改变交叉配重。
-
       #### 车高（Ride Height）
 
       从地面到车身参考点的距离。由于这些数值是针对车辆上的特定参考点测量的，它们不一定反映车辆离地间隙，而是在静态数值下提供可靠的车身离地高度。调整车高是获得最佳性能的关键，因为它会直接影响车辆的空气动力学性能和机械抓地力。提高后车高会增加总下压力并使空气动力学向车辆前部移动，但会增加阻力。降低后车高则相反，空气动力学向后移动，同时总下压力和阻力降低。
 
-      #### 弹簧刚度（Spring Rate）
-
-      弹簧刚度表示弹簧的硬度，以单位位移对应的力表示。它主要负责在车轮负荷变化时维持车高和空气动力学姿态；较硬的弹簧能更好维持车辆空气动力学平台，但会牺牲机械抓地力。较软的弹簧更能应对颠簸并增加机械抓地力，但会使车辆空气动力学平台变差。由于认证规则限制，后弹簧刚度必须在后轴两侧对称，只能成对改变。
-
       #### 减振器挠度（Shock Deflection）
 
       减振器挠度是车库静态条件下减振器从完全伸展长度压缩的量。它有助于判断在减振器触及缓冲块前还剩多少减振器行程。
+
+      #### 弹簧挠度（Spring Deflection）
+
+      弹簧挠度显示弹簧从未加载长度压缩的量。它可用于查看静态条件下的弹簧预载，并与车辆其他轮角进行比较，其中更高数值表示对应弹簧上的预载更多。
+
+      #### 弹簧座偏移（Spring Perch Offset）
+
+      用于调整车高和轮角重量；改变该设置会在静态条件下给弹簧施加预载。减小数值会增加弹簧预载，使该轮角增加重量并提高该处车高。增大数值则相反，会降低该轮角的车高和重量。调整车高时，应成对调整（例如左右成对），或同时调整车内四个弹簧预载设置，以避免改变交叉配重。
+
+      #### 弹簧刚度（Spring Rate）
+
+      弹簧刚度表示弹簧的硬度，以单位位移对应的力表示。它主要负责在车轮负荷变化时维持车高和空气动力学姿态；较硬的弹簧能更好维持车辆空气动力学平台，但会牺牲机械抓地力。较软的弹簧更能应对颠簸并增加机械抓地力，但会使车辆空气动力学平台变差。由于认证规则限制，后弹簧刚度必须在后轴两侧对称，只能成对改变。
 
       #### 外倾角（Camber）
 
@@ -664,10 +668,6 @@ sections:
 
       从车辆上方观察时，前束是车轮相对于底盘中心线的角度。车库中的正值表示前束，即车轮前端比车轮后端更靠近中心线；车库中的负值表示前展，情况相反。在后轴上，增加前束会提高直线稳定性，但可能损害车辆改变方向的能力。
 
-      #### 弹簧挠度（Spring Deflection）
-
-      弹簧挠度显示弹簧从未加载长度压缩的量。它可用于查看静态条件下的弹簧预载，并与车辆其他轮角进行比较，其中更高数值表示对应弹簧上的预载更多。
-
     bodyEn: |+
       ![Image](./assets/porsche-963-gtp/rear-corners.png)
 
@@ -675,21 +675,25 @@ sections:
 
       The weight underneath each tire under static conditions in the garage. Correct weight arrangement around the car is crucial for optimizing a car for a given track and conditions. Individual wheel weight adjustments and crossweight adjustments are made via the Spring Perch Offset setting.
 
-      #### SPRING PERCH OFFSET
-
-      Used to adjust ride height and corner weight, adjusting this setting applies a preload to the spring under static conditions. Decreasing the value increases preload on the spring, adding weight to its corner and increasing the ride height at that corner. Increasing the value does the opposite, reducing height and weight on a given corner. These should be adjusted in pairs (left and right, for example) or with all four spring preload adjustments in the car to prevent crossweight changes while adjusting ride height.
-
       #### RIDE HEIGHT
 
       Distance from ground to a reference point on the chassis. Since these values are measured to a specific reference point on the car, these values may not necessarily reflect the vehicle’s ground clearance, but instead provide a reliable value for the height of the car off of the race track at static values. Adjusting Ride Heights is key for optimum performance, as they can directly influence the vehicle’s aerodynamic performance as well as mechanical grip. Raising the rear ride height will increase overall downforce and shift aero to the front of the car but will increase drag. Decreasing rear ride height will do the opposite, with aero shifting rearward and overall downforce and drag decreasing.
 
-      #### SPRING RATE
-
-      Spring Rate changes how stiff the spring is, represented in a force per unit of displacement. Primarily responsible for maintaining ride height and aerodynamic attitude under changing wheel loads, stiffer springs will maintain the car’s aero platform better while sacrificing mechanical grip. Softer springs will deal with bumps better and increase mechanical grip, but will cause the car’s aerodynamic platform to suffer. Due to homologation rules, rear spring rates must be symmetrical across the rear axle and can only be changed in pairs.
-
       #### SHOCK DEFLECTION
 
       Shock Deflection is how much the shock has compressed from its fully extended length while under static conditions in the garage. This is useful for determining how much shock travel is available before a bump stop is engaged on the shock.
+
+      #### SPRING DEFLECTION
+
+      Spring Deflection shows how much the spring has compressed from its unloaded length. This can be used to see spring preload under static conditions and compare it against other corners of the car, with higher values representing more preload on a given spring.
+
+      #### SPRING PERCH OFFSET
+
+      Used to adjust ride height and corner weight, adjusting this setting applies a preload to the spring under static conditions. Decreasing the value increases preload on the spring, adding weight to its corner and increasing the ride height at that corner. Increasing the value does the opposite, reducing height and weight on a given corner. These should be adjusted in pairs (left and right, for example) or with all four spring preload adjustments in the car to prevent crossweight changes while adjusting ride height.
+
+      #### SPRING RATE
+
+      Spring Rate changes how stiff the spring is, represented in a force per unit of displacement. Primarily responsible for maintaining ride height and aerodynamic attitude under changing wheel loads, stiffer springs will maintain the car’s aero platform better while sacrificing mechanical grip. Softer springs will deal with bumps better and increase mechanical grip, but will cause the car’s aerodynamic platform to suffer. Due to homologation rules, rear spring rates must be symmetrical across the rear axle and can only be changed in pairs.
 
       #### CAMBER
 
@@ -698,10 +702,6 @@ sections:
       #### TOE-IN
 
       Toe is the angle of the wheel, when viewed from above, relative to the centerline of the chassis. Toe-in (positive value in the garage) is when the front of the wheel is closer to the centerline than the rear of the wheel, and Toe-out (negative value in the garage) is the opposite. On the rear end, adding toe-in will increase straight-line stability but may hurt how well the car changes direction.
-
-      #### SPRING DEFLECTION
-
-      Spring Deflection shows how much the spring has compressed from its unloaded length. This can be used to see spring preload under static conditions and compare it against other corners of the car, with higher values representing more preload on a given spring.
 
   - id: rear
     level: 3
@@ -726,14 +726,6 @@ sections:
 
       第三滑块挠度表示安装第三弹簧的滑块机构从完全伸展状态压缩的距离。它类似减振器，但不会产生任何阻尼力，因此不影响悬架行为。
 
-      #### 防倾杆尺寸（ARB Size）
-
-      防倾杆（Anti-Roll Bar）尺寸会改变后悬架的侧倾刚度。增大防倾杆尺寸会提高后悬架侧倾刚度，使车身侧倾减少，但会增加机械转向过度。相反，减小防倾杆尺寸会使悬架侧倾变软，车身侧倾增加，机械转向过度减少，但可能使转向响应变得不那么直接；后轴抓地力会增加。断开防倾杆会通过完全移除防倾杆大幅降低侧倾刚度，同时也会禁用后部防倾杆调节。
-
-      #### 防倾杆调节（ARB Adjustment）
-
-      可以改变防倾杆臂（或“刀片”）的配置，以调节防倾杆总成的整体刚度。更高数值会通过防倾杆臂传递更多力，使后悬架侧倾刚度增加并引起转向过度。相反，较低数值会降低后悬架侧倾刚度，减少转向过度。后防倾杆调节可通过 F8 黑盒在车内调整，名称为 “RARB Setting”。
-
       #### 推杆长度差值（Pushrod Length Delta）
 
       该设置同时调整两根后悬架推杆的长度，显示为相对于基准长度的偏移量。这是调节后车高而不改变后第三弹簧或任一后扭杆预载的好方法。
@@ -741,6 +733,14 @@ sections:
       #### 交叉配重（Cross Weight）
 
       交叉配重是车辆左后轮和右前轮承受的重量相对于车辆总重量的比例，以百分比显示。通过后轮角弹簧的后弹簧座偏移设置进行调整。大多数赛道上，该数值应接近 50%。
+
+      #### 防倾杆尺寸（ARB Size）
+
+      防倾杆（Anti-Roll Bar）尺寸会改变后悬架的侧倾刚度。增大防倾杆尺寸会提高后悬架侧倾刚度，使车身侧倾减少，但会增加机械转向过度。相反，减小防倾杆尺寸会使悬架侧倾变软，车身侧倾增加，机械转向过度减少，但可能使转向响应变得不那么直接；后轴抓地力会增加。断开防倾杆会通过完全移除防倾杆大幅降低侧倾刚度，同时也会禁用后部防倾杆调节。
+
+      #### 防倾杆调节（ARB Adjustment）
+
+      可以改变防倾杆臂（或“刀片”）的配置，以调节防倾杆总成的整体刚度。更高数值会通过防倾杆臂传递更多力，使后悬架侧倾刚度增加并引起转向过度。相反，较低数值会降低后悬架侧倾刚度，减少转向过度。后防倾杆调节可通过 F8 黑盒在车内调整，名称为 “RARB Setting”。
 
     bodyEn: |+
       ![Image](./assets/porsche-963-gtp/rear-setup.png)
@@ -761,14 +761,6 @@ sections:
 
       The Slider Deflection is how far the slider mechanism the Third Spring is mounted on has compressed from fully extended. Similar to a shock but without any damping forces produced, this doesn’t influence the suspension’s behavior.
 
-      #### ARB SIZE
-
-      The ARB (Anti-Roll Bar) size alters the stiffness of the rear suspension in roll. Increasing the ARB size will increase the roll stiffness of the rear suspension, resulting in less body roll but increasing mechanical oversteer. Conversely, reducing the ARB size will soften the suspension in roll, increasing body roll but decreasing mechanical oversteer but can result in a less-responsive feel from the steering, but grip across the rear axle will increase. Disconnecting the bar will greatly reduce the roll stiffness by removing the ARB entirely, which will also disable the ARB Adjustment for the rear.
-
-      #### ARB ADJUSTMENT
-
-      The configuration of the Anti-Roll Bar arms, or “blades”, can be changed to alter the overall stiffness of the ARB assembly. Higher values transfer more force through the arms to the ARB itself, increasing roll stiffness in the rear suspension and inducing oversteer. Conversely, lower values reduce the roll stiffness of the rear suspension and reduce oversteer. The rear ARB Adjustment is available as an in-car adjustment via the F8 black box as the “RARB Setting”.
-
       #### PUSHROD LENGTH DELTA
 
       This adjusts the length of both rear suspension pushrods together, shown as an offset from a baseline length figure. This is a great way to adjust rear ride height without altering the preload on the rear Third Spring or either of the rear Torsion Bars.
@@ -776,6 +768,14 @@ sections:
       #### CROSS WEIGHT
 
       Cross weight is the amount of weight on the car’s Left-Rear and Right-Front tires relative to the entire weight of the car, displayed in percent. This is adjusted via the rear spring perch offset settings on the rear corner springs. This value should be around 50% for most tracks.
+
+      #### ARB SIZE
+
+      The ARB (Anti-Roll Bar) size alters the stiffness of the rear suspension in roll. Increasing the ARB size will increase the roll stiffness of the rear suspension, resulting in less body roll but increasing mechanical oversteer. Conversely, reducing the ARB size will soften the suspension in roll, increasing body roll but decreasing mechanical oversteer but can result in a less-responsive feel from the steering, but grip across the rear axle will increase. Disconnecting the bar will greatly reduce the roll stiffness by removing the ARB entirely, which will also disable the ARB Adjustment for the rear.
+
+      #### ARB ADJUSTMENT
+
+      The configuration of the Anti-Roll Bar arms, or “blades”, can be changed to alter the overall stiffness of the ARB assembly. Higher values transfer more force through the arms to the ARB itself, increasing roll stiffness in the rear suspension and inducing oversteer. Conversely, lower values reduce the roll stiffness of the rear suspension and reduce oversteer. The rear ARB Adjustment is available as an in-car adjustment via the F8 black box as the “RARB Setting”.
 
   - id: dampers
     level: 2
@@ -1071,7 +1071,7 @@ sections:
 
       The differential can be set with a static load applied. Higher values produce more locking force in the differential in all conditions, producing more understeer under acceleration and deceleration. This value will also affect mid-corner performance, with higher values not allowing the differential to unlock as much, increasing mid-corner understeer.
 
-  - id: setup-tips-intro
+  - id: setup-tips
     level: 2
     titleZh: 设置技巧
     titleEn: SETUP TIPS
@@ -1081,8 +1081,8 @@ sections:
     bodyEn: |+
       > This section is aimed toward helping users who want to dive deeper into the different aspects of the vehicle’s setup.
 
-  - id: setup-tips
-    level: 2
+  - id: setup-tips-2
+    level: 3
     titleZh: 设置技巧
     titleEn: SETUP TIPS
 
