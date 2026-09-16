@@ -410,28 +410,40 @@ html[data-language="en"] .language-pair > [data-lang="en"] {
 
 .site-footer {
   display: flex;
-  width: min(78rem, 100%);
+  width: 100%;
+  max-width: 92rem;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
   margin: auto auto 0;
-  padding: 2rem clamp(1rem, 5vw, 4rem) 2.5rem;
+  padding: 1.25rem clamp(1.25rem, 4vw, 4rem) 2rem;
+  border-top: 1px solid #d5d3cc;
   color: #64727b;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.5;
 }
 
-.footer-site-name,
-.site-footer a {
+.footer-site-name {
   color: #172026;
 }
 
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
 .site-footer a {
+  color: inherit;
   text-decoration: none;
 }
 
-.site-footer a:hover {
+.site-footer a:hover,
+.site-footer a:focus-visible {
   color: #9e2a2b;
 }
 
@@ -691,13 +703,17 @@ html[data-language="en"] .language-switch button[data-language-option="en"] {
 .manual-prose a:focus-visible,
 .manual-toc a:focus-visible,
 .manual-card > a:focus-visible,
-.site-footer a:focus-visible,
 .about-project-link:focus-visible,
 .not-found a:focus-visible,
 .catalog-controls input:focus-visible,
 .catalog-controls select:focus-visible,
 button:focus-visible {
   outline: 3px solid #2c73b8;
+  outline-offset: 3px;
+}
+
+.site-footer a:focus-visible {
+  outline: 3px solid #9e2a2b;
   outline-offset: 3px;
 }
 
