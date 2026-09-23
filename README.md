@@ -1,40 +1,87 @@
 # RaceDocs
 
-RaceDocs 是面向中文模拟赛车玩家的双语数字手册资料库，提供经过校验的 YAML 内容、安全 Markdown 渲染、双语阅读，以及手册搜索和筛选。
+**English** | [简体中文](README_zh-CN.md)
 
-在线访问：[racedocs.eeracing.com](https://racedocs.eeracing.com)
+RaceDocs is a bilingual manual library for Chinese-speaking sim racers. It turns vehicle manuals into web-friendly references that are easier to find, read, and compare in Chinese and English.
 
-## 开发
+Read online: [racedocs.eeracing.com](https://racedocs.eeracing.com)
 
-需要 Node.js 24.14.0 和 pnpm 11.7.0。
+## Features
+
+- Search manuals by title, brand, vehicle class, or sim platform, and narrow the catalog with filters.
+- Switch between Chinese and English on a manual page and jump to sections from the table of contents. Missing translations are clearly marked.
+- Read manuals with images and tables on desktop or mobile.
+
+## Local development
+
+RaceDocs is a static site built with Astro. Use Node.js 24 (`.nvmrc` specifies 24.21.0) and pnpm 11 (`package.json` specifies 11.26.0).
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-运行自动验证和生产构建：
+Open the local URL shown in the terminal. Before submitting changes, run:
 
 ```sh
 pnpm test
 pnpm build
 ```
 
-构建结果位于 `dist/`，可部署到任意静态网站托管服务。
+Use `pnpm preview` to inspect the production build. The output is written to `dist/`. CI runs the same tests and build.
 
-## 内容维护
+## Add or edit a manual
 
-每本手册对应 `src/data/manuals/` 中的一个 YAML 文件。
+Manuals live in [`src/data/manuals/`](src/data/manuals/), one `.yml` file per manual. Existing files are useful references. This small example is a starting point:
 
-- `slug` 只使用小写英文、数字和连字符，并与文件名一致。
-- `published: true` 的手册才会进入生产构建。
-- 已发布手册的封面和正文图片应位于 `src/data/manuals/assets/{slug}/`，并在内容中使用 `./assets/{slug}/...` 引用。
-- 章节 ID 必须唯一；标题层级只能为 H2 或 H3，且 H3 必须位于 H2 之后。
-- 中文标题和正文必填；英文标题和正文必须同时填写或同时留空。
-- 来源信息通过 `source` 记录，Markdown 会在构建时清理后再输出。
+```yaml
+slug: example-car
+published: false
+titleZh: 示例赛车用户手册
+contentType: vehicle-manual
+brand: Example Motors
+vehicleClass: GT3
+platform: iRacing
+discipline: sports-car
+source:
+  type: synthetic
+  title: Example source
+  notice: Describe the source and usage rights here
+sections:
+  - id: introduction
+    level: 2
+    titleZh: 简介
+    titleEn: Introduction
+    bodyZh: |-
+      在这里编写 Markdown 正文。
+    bodyEn: |-
+      Write Markdown content here.
+```
 
-## 声明与许可
+Save it as `src/data/manuals/example-car.yml`, then replace the placeholders with real content. `source.type` can be `official` or `synthetic`. Optional `revision` and `publishedAt` fields record the source version and publication date. See [`manual-schema.ts`](src/lib/manual-schema.ts) for the complete field definitions and allowed category values.
 
-RaceDocs 是独立项目，与手册中提及的赛车品牌、汽车制造商、模拟平台及其他权利人没有隶属、认可或合作关系。相关名称、标识和商标归各自权利人所有。
+Content rules:
 
-项目源代码使用 [MIT License](LICENSE)。手册文字、图片和其他媒体内容不因源代码采用 MIT License 而自动获得相同授权；其权利与使用条件以各自来源和权利人的规定为准。
+1. `slug` must match the filename and contain only lowercase ASCII letters, digits, and hyphens. Section IDs follow the same format and must be unique within a manual.
+2. Each manual needs at least one section. `level` must be `2` or `3`, and a level 3 section must follow a level 2 section.
+3. `titleZh` is required for the manual; `titleEn` is optional. Each section needs a title or body in at least one language. The reader shows a notice when the other language's body is missing.
+4. Put images in `src/data/manuals/assets/{slug}/` and reference them in `cover` or Markdown as `./assets/{slug}/filename.png`. PNG, JPG, WebP, and SVG are supported. Every image must exist, belong to that manual, and be referenced by its content.
+5. Run `pnpm test` and `pnpm build` after editing. Once the content, source, and image rights are ready, set `published: true` and provide a `cover`. Unpublished manuals can be viewed at `/manuals/{slug}/` during development but are excluded from production builds.
+
+## Project structure
+
+| Path | Purpose |
+| --- | --- |
+| `src/data/manuals/` | Manual YAML files and images |
+| `src/lib/manual-schema.ts` | Manual field and section validation |
+| `src/pages/` | Catalog, manual, and other pages |
+| `tests/` | Content inventory, schema, and Markdown checks |
+| `.github/workflows/ci.yml` | CI tests and build |
+
+Found a translation error, a version difference, or another issue? Share it in the [GitHub repository](https://github.com/eeracing/racedocs).
+
+## Independence and licensing
+
+RaceDocs is an independent project. It is not affiliated with, endorsed by, or partnered with the racing brands, vehicle manufacturers, simulation platforms, or other rights holders mentioned in the manuals. Their names, logos, and trademarks belong to their respective owners.
+
+The project source code is licensed under the [MIT License](LICENSE). Manual text, images, and other media do not automatically receive the same license; their rights and terms of use are governed by their respective sources and rights holders.
