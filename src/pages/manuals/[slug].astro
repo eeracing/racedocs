@@ -66,7 +66,7 @@ const titleEn = splitTitleSuffix(manual.titleEn ?? manual.titleZh, 'User Manual'
 ---
 
 <BaseLayout
-  title={`${manual.titleZh} · RaceDocs`}
+  title={`${manual.titleZh} - RaceDocs`}
   description={`${manual.brand} ${manual.vehicleClass} ${manual.platform} 双语模拟赛车手册。`}
   hasEnglish={hasEnglish}
   image={shareImage}
@@ -101,7 +101,7 @@ const titleEn = splitTitleSuffix(manual.titleEn ?? manual.titleZh, 'User Manual'
 
     <main class="manual-content" id="manual-content">
       <header class="manual-heading">
-        <p class="manual-meta">{manual.brand} · {manual.vehicleClass} · {manual.platform}</p>
+        <p class="manual-meta">{manual.brand} - {manual.vehicleClass} - {manual.platform}</p>
         <h1>
           <span data-lang="zh">
             {titleZh.main}
