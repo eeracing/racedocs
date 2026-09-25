@@ -15,7 +15,7 @@ const {
   title,
   description = 'RaceDocs 中文模拟赛车数字手册资料库',
   hasEnglish = false,
-  image = '/favicon.svg',
+  image = '/racedocs-logo-social.webp',
   noindex = false,
 } = Astro.props;
 
@@ -31,7 +31,7 @@ const shareImage = new URL(image, Astro.site);
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.webp" type="image/webp" sizes="64x64" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="RaceDocs" />
     <meta property="og:title" content={title} />

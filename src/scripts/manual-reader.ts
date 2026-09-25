@@ -8,10 +8,25 @@ import {
 const root = document.documentElement;
 const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-manual-section]'));
 const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));
-const tocDialog = document.querySelector<HTMLDialogElement>('[data-toc-dialog]');
+const tocPanel = document.querySelector<HTMLElement>('[data-toc-panel]');
 const openTocButton = document.querySelector<HTMLButtonElement>('[data-open-toc]');
-const closeTocButton = document.querySelector<HTMLButtonElement>('[data-close-toc]');
-const readerChrome = document.querySelector<HTMLElement>('.reader-chrome');
+const readerLayout = document.querySelector<HTMLElement>('.reader-layout');
+const siteFooter = document.querySelector<HTMLElement>('.site-footer');
+
+function setTocOpen(open: boolean, restoreFocus = true) {
+  if (!tocPanel || !openTocButton) return;
+  tocPanel.hidden = !open;
+  if (readerLayout) readerLayout.inert = open;
+  if (siteFooter) siteFooter.inert = open;
+  openTocButton.setAttribute('aria-expanded', String(open));
+  openTocButton.setAttribute(
+    'aria-label',
+    open ? '关闭目录 / Close contents' : '目录 / Table of contents',
+  );
+  root.classList.toggle('toc-panel-open', open);
+  if (open) tocPanel.querySelector<HTMLAnchorElement>('a[href]')?.focus({ preventScroll: true });
+  else if (restoreFocus) openTocButton.focus({ preventScroll: true });
+}
 
 let activeSectionId = window.location.hash.slice(1) || sections[0]?.id;
 let navigationSequence = 0;
@@ -88,13 +103,22 @@ function sectionClosestToReadingLine(): HTMLElement | undefined {
   }, undefined);
 }
 
-function alignSection(section: HTMLElement, behavior: ScrollBehavior) {
+function alignSection(section: HTMLElement, smooth: boolean) {
   const heading = sectionHeading(section);
   const documentTop = heading.getBoundingClientRect().top + window.scrollY;
-  window.scrollTo({ top: documentTop - stickyOffset(), behavior });
+  const top = documentTop - stickyOffset();
+  if (smooth && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo({ top, behavior: 'smooth' });
+    return;
+  }
+
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo({ top, behavior: 'auto' });
+  root.style.scrollBehavior = previousScrollBehavior;
 }
 
-function cancelNavigationCorrection() {
+function cancelNavigation() {
   if (!navigationTargetId && Date.now() >= navigationLockUntil) return;
 
   navigationSequence += 1;
@@ -129,20 +153,14 @@ function navigateToSection(
     history.pushState(null, '', `#${sectionId}`);
   }
 
-  alignSection(section, smooth ? 'smooth' : 'auto');
+  alignSection(section, smooth);
 
-  const correctionTimes = [250, 750, duration];
-  for (const delay of correctionTimes) {
-    window.setTimeout(() => {
-      if (sequence !== navigationSequence) return;
-      alignSection(section, 'auto');
-      if (delay === duration) {
-        navigationTargetId = undefined;
-        navigationLockUntil = 0;
-        syncActiveSectionFromScroll();
-      }
-    }, delay);
-  }
+  window.setTimeout(() => {
+    if (sequence !== navigationSequence) return;
+    navigationTargetId = undefined;
+    navigationLockUntil = 0;
+    syncActiveSectionFromScroll();
+  }, duration);
 }
 
 function setLanguage(language: SiteLanguage, preservePosition = true) {
@@ -165,9 +183,18 @@ setLanguage(root.dataset.language === 'en' ? 'en' : 'zh', false);
 for (const link of tocLinks) {
   link.addEventListener('click', (event) => {
     event.preventDefault();
-    tocDialog?.close();
+    const wasMenuOpen = tocPanel !== null && !tocPanel.hasAttribute('hidden');
+    setTocOpen(false, false);
     const sectionId = link.dataset.sectionLink;
-    if (sectionId) navigateToSection(sectionId);
+    if (sectionId) {
+      navigateToSection(sectionId);
+      const section = document.getElementById(sectionId);
+      if (wasMenuOpen && section instanceof HTMLElement) {
+        const heading = sectionHeading(section);
+        heading.tabIndex = -1;
+        heading.focus({ preventScroll: true });
+      }
+    }
   });
 }
 
@@ -183,13 +210,13 @@ window.addEventListener(
   { passive: true },
 );
 
-window.addEventListener('wheel', cancelNavigationCorrection, { passive: true });
-window.addEventListener('touchstart', cancelNavigationCorrection, { passive: true });
+window.addEventListener('wheel', cancelNavigation, { passive: true });
+window.addEventListener('touchstart', cancelNavigation, { passive: true });
 window.addEventListener('keydown', (event) => {
   if (
     ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)
   ) {
-    cancelNavigationCorrection();
+    cancelNavigation();
   }
 });
 
@@ -197,19 +224,6 @@ window.addEventListener('hashchange', () => {
   const sectionId = window.location.hash.slice(1);
   if (sectionId) navigateToSection(sectionId, { smooth: false, updateHash: false });
 });
-
-for (const image of document.querySelectorAll<HTMLImageElement>('.manual-prose img')) {
-  if (image.complete) continue;
-  image.addEventListener(
-    'load',
-    () => {
-      if (!navigationTargetId || Date.now() >= navigationLockUntil) return;
-      const target = document.getElementById(navigationTargetId);
-      if (target instanceof HTMLElement) alignSection(target, 'auto');
-    },
-    { once: true },
-  );
-}
 
 const initialSectionId = window.location.hash.slice(1);
 if (initialSectionId) {
@@ -222,32 +236,39 @@ if (initialSectionId) {
   syncActiveSectionFromScroll();
 }
 
-if (readerChrome) {
-  new ResizeObserver(() => {
-    if (!navigationTargetId || Date.now() >= navigationLockUntil) return;
-
-    const section = document.getElementById(navigationTargetId);
-    if (section instanceof HTMLElement) alignSection(section, 'auto');
-  }).observe(readerChrome);
-}
-
 openTocButton?.addEventListener('click', () => {
-  if (!tocDialog) return;
-  tocDialog.showModal();
-  openTocButton.setAttribute('aria-expanded', 'true');
-  closeTocButton?.focus();
+  const willOpen = tocPanel?.hasAttribute('hidden') ?? false;
+  if (willOpen) cancelNavigation();
+  setTocOpen(willOpen);
 });
 
-closeTocButton?.addEventListener('click', () => tocDialog?.close());
-
-tocDialog?.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
+  if (!tocPanel || tocPanel.hasAttribute('hidden')) return;
   if (event.key === 'Escape') {
     event.preventDefault();
-    tocDialog.close();
+    setTocOpen(false);
+    return;
+  }
+  if (event.key !== 'Tab') return;
+
+  const links = Array.from(tocPanel.querySelectorAll<HTMLAnchorElement>('a[href]'));
+  const first = links[0];
+  const last = links.at(-1);
+  if (!first || !last) return;
+  if (event.shiftKey && (document.activeElement === first || !tocPanel.contains(document.activeElement))) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !tocPanel.contains(document.activeElement))) {
+    event.preventDefault();
+    first.focus();
   }
 });
 
-tocDialog?.addEventListener('close', () => {
-  openTocButton?.setAttribute('aria-expanded', 'false');
-  openTocButton?.focus();
+window.matchMedia('(max-width: 59.99rem)').addEventListener('change', (event) => {
+  if (!event.matches && tocPanel && !tocPanel.hasAttribute('hidden')) {
+    setTocOpen(false, false);
+    const sidebarLink = document.querySelector<HTMLElement>('.reader-sidebar .manual-toc a.is-active')
+      ?? document.querySelector<HTMLElement>('.reader-sidebar .manual-toc a');
+    sidebarLink?.focus({ preventScroll: true });
+  }
 });

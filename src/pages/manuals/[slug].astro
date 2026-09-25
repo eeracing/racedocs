@@ -72,15 +72,23 @@ const titleEn = splitTitleSuffix(manual.titleEn ?? manual.titleZh, 'User Manual'
   image={shareImage}
 >
   <div class="reader-chrome">
-    <SiteHeader hasEnglish={hasEnglish} />
-
-    <div class="mobile-reader-bar">
-      <button type="button" class="toc-open" data-open-toc aria-expanded="false">
-        <span data-lang="zh">目录</span>
-        <span data-lang="en">Contents</span>
-      </button>
-      <span data-lang="zh">{manual.titleZh}</span>
-      <span data-lang="en">{manual.titleEn ?? manual.titleZh}</span>
+    <SiteHeader hasEnglish={hasEnglish} manualReader />
+    <div id="mobile-toc-panel" class="toc-panel" data-toc-panel hidden>
+      <div class="toc-panel__inner">
+        <div class="toc-panel-header">
+          <h2 id="mobile-toc-title" data-lang="zh">目录</h2>
+          <h2 data-lang="en">Contents</h2>
+          <p data-lang="zh">{manual.titleZh}</p>
+          <p data-lang="en">{manual.titleEn ?? manual.titleZh}</p>
+        </div>
+        <ManualToc sections={manual.sections} label="移动端手册目录" />
+        <div class="toc-panel-footer">
+          <a href="/about/" class="language-pair">
+            <span data-lang="zh">关于本站</span>
+            <span data-lang="en">About RaceDocs</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -137,18 +145,6 @@ const titleEn = splitTitleSuffix(manual.titleEn ?? manual.titleZh, 'User Manual'
       }
     </main>
   </div>
-
-  <dialog class="toc-dialog" data-toc-dialog aria-label="手册目录 / Contents">
-    <div class="toc-dialog-header">
-      <h2 id="mobile-toc-title" data-lang="zh">目录</h2>
-      <h2 data-lang="en">Contents</h2>
-      <button type="button" data-close-toc aria-label="关闭目录 / Close contents">
-        <span data-lang="zh">关闭</span>
-        <span data-lang="en">Close</span>
-      </button>
-    </div>
-    <ManualToc sections={manual.sections} label="移动端手册目录" />
-  </dialog>
 
   <script>
     import '../../scripts/manual-reader';

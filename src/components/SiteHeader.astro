@@ -3,22 +3,40 @@ import LanguageSwitch from './LanguageSwitch.astro';
 
 interface Props {
   hasEnglish: boolean;
+  manualReader?: boolean;
 }
 
-const { hasEnglish } = Astro.props;
+const { hasEnglish, manualReader = false } = Astro.props;
+const onAboutPage = Astro.url.pathname === '/about/';
 ---
 
 <header class="site-header">
   <div class="site-header__inner">
     <div class="site-branding">
-      <a class="brand" href="/" aria-label="返回 RaceDocs 首页">RaceDocs</a>
+      <a class="brand" href="/" aria-label="返回 RaceDocs 首页">
+        <img src="/racedocs-logo.webp" alt="" width="32" height="32" decoding="async" />
+        <span class="brand-name">RaceDocs</span>
+      </a>
       <span class="brand-attribution">by <a href="https://eeracing.com/">EE Racing</a></span>
     </div>
     <div class="header-actions">
-      <a href="/about/" class="header-about language-pair">
+      <a href="/about/" class="header-about language-pair" aria-current={onAboutPage ? 'page' : undefined}>
         <span data-lang="zh">关于本站</span>
         <span data-lang="en">About</span>
       </a>
+      {manualReader && (
+        <button type="button" class="toc-open" data-open-toc aria-label="目录 / Table of contents" aria-expanded="false" aria-controls="mobile-toc-panel">
+          <span class="toc-open__label toc-open__label--open language-pair">
+            <span data-lang="zh">目录</span>
+            <span data-lang="en">TOC</span>
+          </span>
+          <span class="toc-open__label toc-open__label--close language-pair">
+            <span data-lang="zh">关闭</span>
+            <span data-lang="en">Close</span>
+          </span>
+          <span class="toc-open__mark" aria-hidden="true"></span>
+        </button>
+      )}
       <LanguageSwitch hasEnglish={hasEnglish} />
     </div>
   </div>

@@ -3,7 +3,7 @@ export type SiteLanguage = 'zh' | 'en';
 const root = document.documentElement;
 
 function languageButtons() {
-  return document.querySelectorAll<HTMLButtonElement>('[data-language-option]');
+  return document.querySelectorAll<HTMLButtonElement>('[data-language-toggle]');
 }
 
 export function activeLanguage(): SiteLanguage {
@@ -15,7 +15,10 @@ export function applyLanguage(language: SiteLanguage, persist = true) {
   root.lang = language === 'en' ? 'en' : 'zh-CN';
 
   for (const button of languageButtons()) {
-    button.setAttribute('aria-pressed', String(button.dataset.languageOption === language));
+    button.setAttribute(
+      'aria-label',
+      language === 'en' ? '切换到中文 / Switch to Chinese' : '切换到英文 / Switch to English',
+    );
   }
 
   if (!persist) return;
@@ -27,7 +30,7 @@ export function applyLanguage(language: SiteLanguage, persist = true) {
 export function bindLanguageSwitch(onChange: (language: SiteLanguage) => void) {
   for (const button of languageButtons()) {
     button.addEventListener('click', () => {
-      onChange(button.dataset.languageOption === 'en' ? 'en' : 'zh');
+      onChange(activeLanguage() === 'en' ? 'zh' : 'en');
     });
   }
 }
